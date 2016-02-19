@@ -3,7 +3,7 @@
 import {createStore} from 'redux';
 import deepFreeze from 'deep-freeze';
 
-import {INIT_PUZZLE, MOVE_CURSOR} from './actions';
+import {INIT_PUZZLE, MOVE_CURSOR, START_DRAWING, FINISH_DRAWING} from './actions';
 import sculpt from './sculpt';
 
 function createReducer(initialState: any, handlers: object): func {
@@ -22,6 +22,7 @@ const initialState = deepFreeze({
   cursor: {
     x: 0, y: 0,
   },
+  drawing: false,
 });
 
 const reducers = {
@@ -40,6 +41,22 @@ const reducers = {
           x: action.x,
           y: action.y,
         },
+      },
+    });
+  },
+
+  [START_DRAWING](state, action) {
+    return sculpt(state, {
+      drawing: {
+        $set: true,
+      },
+    });
+  },
+
+  [FINISH_DRAWING](state, action) {
+    return sculpt(state, {
+      drawing: {
+        $set: false,
       },
     });
   },

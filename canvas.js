@@ -7,6 +7,7 @@ Object.assign(canvas.style, {
   left: '0',
   top: '0',
   background: 'blue',
+  cursor: 'none',
 });
 
 resize();

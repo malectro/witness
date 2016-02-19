@@ -21,17 +21,18 @@ function draw() {
 }
 
 function drawState(state) {
-  ctx.save();
-
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = 'yellow';
+  if (state.drawing) {
+    ctx.fillStyle = 'yellow';
+  } else {
+    ctx.fillStyle = 'white';
+  }
+  ctx.beginPath();
   ctx.arc(state.cursor.x, state.cursor.y, 20, 0, TWO_PI);
   ctx.closePath();
   ctx.fill();
-
-  ctx.restore();
 }
 
 draw();
