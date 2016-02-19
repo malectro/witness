@@ -24,6 +24,27 @@ function drawState(state) {
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  ctx.strokeStyle = 'gray';
+  ctx.lineWidth = 10;
+  for (let path of state.puzzle.paths) {
+    ctx.beginPath();
+
+    const {x, y} = path[0];
+    ctx.moveTo(x, y);
+
+    for (let i = 1; i < path.length; i++) {
+      const {x, y} = path[i];
+      ctx.lineTo(x, y);
+    }
+
+    ctx.stroke();
+  }
+
+  for (let start of state.puzzle.starts) {
+    ctx.beginPath();
+    ctx.arc(start.x, start.y, 20, 0, TWO_PI);
+  }
+
   if (state.drawing) {
     ctx.fillStyle = 'yellow';
   } else {

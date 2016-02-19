@@ -2,7 +2,8 @@ import _ from 'lodash';
 import sculpt from './sculpt';
 
 
-export const LINE = Symbol('line');
+export const LINE_VERTICAL = Symbol('line vertical');
+export const LINE_HORIZONTAL = Symbol('line horizontal');
 export const BLANK = Symbol('blank');
 export const START = Symbol('start');
 export const END = Symbol('end');
@@ -19,6 +20,18 @@ export const demoPuzzle = {
     [BLANK, BLANK, BLANK, BLANK, BLANK],
     [BLANK, BLANK, BLANK],
     [START, BLANK, BLANK, BLANK, BLANK],
+  ],
+  paths: [
+    [
+      {x: 10, y: 10},
+      {x: 200, y: 10},
+    ],
+  ],
+  starts: [
+    {x: 10, y: 10},
+  ],
+  ends: [
+    {x: 200, y: 10},
   ],
 };
 
