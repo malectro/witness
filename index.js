@@ -47,6 +47,11 @@ function drawState(state) {
   }
 
   for (let start of state.puzzle.starts) {
+    if (start === state.progress.start) {
+      ctx.fillStyle = 'yellow';
+    } else {
+      ctx.fillStyle = 'gray';
+    }
     ctx.beginPath();
     ctx.arc(start.x, start.y, START_RADIUS, 0, TWO_PI);
     ctx.closePath();

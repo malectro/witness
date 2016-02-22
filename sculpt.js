@@ -75,15 +75,13 @@ const commands = keys(sculptors);
  * Meta Sculptor
  */
 export default function sculpt(target: any, spec: Object): any {
-  let newValue = target;
+  let newValue = clone(target);
 
   for (let command of commands) {
     if (spec.hasOwnProperty(command)) {
       newValue = sculptors[command](newValue, spec[command]);
     }
   }
-
-  newValue = clone(newValue);
 
   for (let key in spec) {
     if (!sculptors.hasOwnProperty(key)) {

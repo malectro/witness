@@ -120,6 +120,11 @@ const reducers = {
       drawing: {
         $set: false,
       },
+      progress: {
+        start: {
+          $set: null,
+        },
+      },
     });
   },
 };
