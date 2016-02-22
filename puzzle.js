@@ -2,6 +2,9 @@ import _ from 'lodash';
 import sculpt from './sculpt';
 
 
+export const START_RADIUS = 10;
+export const LINE_WIDTH = 10;
+
 export const LINE_VERTICAL = Symbol('line vertical');
 export const LINE_HORIZONTAL = Symbol('line horizontal');
 export const BLANK = Symbol('blank');

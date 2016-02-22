@@ -1,3 +1,6 @@
+import {resize} from './actions';
+import store from './store';
+
 
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
@@ -10,12 +13,13 @@ Object.assign(canvas.style, {
   cursor: 'none',
 });
 
-resize();
-window.addEventListener('resize', resize);
+handleResize();
+window.addEventListener('resize', handleResize);
 
-function resize() {
+function handleResize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  store.dispatch(resize(canvas.width, canvas.height));
 }
 
 document.body.appendChild(canvas);

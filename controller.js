@@ -9,9 +9,9 @@ function handleMouseMove(event) {
 function handleClick(event) {
   let action;
   if (store.getState().drawing) {
-    action = finishDrawing();
+    action = finishDrawing(event.clientX, event.clientY);
   } else {
-    action = startDrawing();
+    action = startDrawing(event.clientX, event.clientY);
   }
   store.dispatch(action);
 }

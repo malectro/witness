@@ -6,6 +6,8 @@
 
 export const INIT_PUZZLE = 'INIT_PUZZLE';
 
+export const RESIZE = 'RESIZE';
+
 export const MOVE_CURSOR = 'MOVE_CURSOR';
 
 export const START_DRAWING = 'START_DRAWING';
@@ -24,6 +26,14 @@ export function initPuzzle(puzzle: Array): Object {
 }
 
 
+export function resize(w: number, h: number): Object {
+  return {
+    type: RESIZE,
+    w, h,
+  };
+}
+
+
 export function moveCursor(x: number, y: number): Object {
   return {
     type: MOVE_CURSOR,
@@ -32,15 +42,17 @@ export function moveCursor(x: number, y: number): Object {
 }
 
 
-export function startDrawing(): Object {
+export function startDrawing(x: number, y: number): Object {
   return {
     type: START_DRAWING,
+    x, y,
   };
 }
 
-export function finishDrawing(): Object {
+export function finishDrawing(x: number, y: number): Object {
   return {
     type: FINISH_DRAWING,
+    x, y,
   };
 }
 
